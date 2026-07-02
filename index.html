@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2 Week Notice Date Calculator: Find Your Last Working Day</title>
+  <meta name="description" content="Calculate your two-week notice last working day from any resignation date. Include weekends, skip weekends, copy a notice summary, and draft a simple resignation note.">
+  <link rel="canonical" href="https://two-week-notice-calculator.pages.dev/">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <meta property="og:title" content="2 Week Notice Date Calculator">
+  <meta property="og:description" content="Find your last working day after giving two weeks notice, with weekend options and a simple resignation note.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://two-week-notice-calculator.pages.dev/">
+  <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "2 Week Notice Date Calculator",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Any",
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+        "description": "Calculate a final working day from a resignation date and notice period."
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How do you calculate a two-week notice date?",
+            "acceptedAnswer": {"@type": "Answer", "text": "Pick the date you give notice, add 14 calendar days for a standard two-week notice, then confirm the final working day with your employer's policy and schedule."}
+          },
+          {
+            "@type": "Question",
+            "name": "Does two weeks notice include weekends?",
+            "acceptedAnswer": {"@type": "Answer", "text": "Many people count two weeks notice as 14 calendar days, which includes weekends. Some workplaces prefer business-day scheduling, so this calculator lets you compare both."}
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="NoticeDesk home">
+      <span class="brand-mark">N</span>
+      <span>NoticeDesk</span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a href="#calculator">Calculator</a>
+      <a href="#guide">Guide</a>
+      <a href="#faq">FAQ</a>
+      <a href="privacy.html">Privacy</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">2 week notice calculator</p>
+        <h1>Find Your Last Working Day</h1>
+        <p>Enter the day you plan to resign and get a clear final work date, notice window, and short resignation note you can adapt before sending.</p>
+        <div class="hero-actions">
+          <a class="button-link" href="#calculator">Calculate date</a>
+          <a class="text-link" href="#letter">Draft notice note</a>
+        </div>
+      </div>
+      <aside class="hero-panel" aria-label="Calculator features">
+        <div><strong>14 calendar days</strong><span>Standard two-week notice</span></div>
+        <div><strong>Business days</strong><span>Optional weekday-only count</span></div>
+        <div><strong>Copy summary</strong><span>Use in email or HR notes</span></div>
+        <div><strong>Letter helper</strong><span>Simple resignation wording</span></div>
+      </aside>
+    </section>
+
+    <section id="calculator" class="calculator-band">
+      <div class="calculator-shell">
+        <form class="input-panel">
+          <div class="panel-heading">
+            <p class="eyebrow">Inputs</p>
+            <h2>Calculate your notice period</h2>
+            <p class="hint">This is a planning tool. Always confirm your final day with your manager, HR team, contract, or local rules.</p>
+          </div>
+
+          <div class="field">
+            <label for="notice-date">Date you give notice</label>
+            <input id="notice-date" type="date">
+            <p class="hint">Use the day your employer receives your notice.</p>
+          </div>
+
+          <div class="field">
+            <label for="notice-length">Notice length</label>
+            <select id="notice-length">
+              <option value="2" selected>2 weeks</option>
+              <option value="1">1 week</option>
+              <option value="3">3 weeks</option>
+              <option value="4">4 weeks</option>
+            </select>
+          </div>
+
+          <fieldset class="option-group">
+            <legend>Counting method</legend>
+            <label>
+              <input type="radio" name="count-mode" value="calendar" checked>
+              <span>Calendar days, including weekends</span>
+            </label>
+            <label>
+              <input type="radio" name="count-mode" value="business">
+              <span>Business days only, Monday-Friday</span>
+            </label>
+          </fieldset>
+
+          <div class="field">
+            <label for="employee-name">Your name <span class="optional">optional</span></label>
+            <input id="employee-name" type="text" placeholder="Alex Morgan">
+          </div>
+
+          <div class="field">
+            <label for="manager-name">Manager name <span class="optional">optional</span></label>
+            <input id="manager-name" type="text" placeholder="Jordan Lee">
+          </div>
+
+          <div class="field">
+            <label for="role-title">Role title <span class="optional">optional</span></label>
+            <input id="role-title" type="text" placeholder="Marketing Coordinator">
+          </div>
+        </form>
+
+        <section class="result-panel" aria-live="polite">
+          <p class="eyebrow">Result</p>
+          <div class="date-hero">
+            <span>Estimated last working day</span>
+            <strong id="last-day">-</strong>
+            <em id="result-note">Choose a notice date to begin.</em>
+          </div>
+
+          <div class="metric-grid">
+            <div><span>Notice given</span><strong id="given-date">-</strong></div>
+            <div><span>Notice period</span><strong id="notice-window">-</strong></div>
+            <div><span>Counting method</span><strong id="counting-method">Calendar</strong></div>
+            <div><span>Return date</span><strong id="next-day">-</strong></div>
+          </div>
+
+          <button id="copy-summary" type="button">Copy notice summary</button>
+          <p id="copy-status" class="copy-status" role="status"></p>
+        </section>
+      </div>
+    </section>
+
+    <section id="letter" class="letter-band">
+      <div>
+        <p class="eyebrow">Resignation note</p>
+        <h2>Simple two-week notice wording</h2>
+        <p>Keep the message brief, professional, and clear. Update the generated text for your situation before sending.</p>
+      </div>
+      <article class="letter-card">
+        <pre id="letter-output"></pre>
+        <button id="copy-letter" type="button">Copy note</button>
+        <p id="letter-status" class="copy-status" role="status"></p>
+      </article>
+    </section>
+
+    <section id="guide" class="guide-grid">
+      <article>
+        <h2>How the two-week notice date is calculated</h2>
+        <p>The default method adds 14 calendar days to the date you give notice. For example, if you give notice on a Monday, the estimated final working day is two Mondays later.</p>
+        <p>Some teams count the last day differently, especially when holidays, shift work, PTO, contracts, or company policy are involved. Use this as a planning estimate and confirm the date in writing.</p>
+      </article>
+      <article>
+        <h2>Should weekends count?</h2>
+        <p>In everyday use, two weeks notice usually means two calendar weeks, so weekends are included. If your workplace schedules around business days, use the business-day option to compare a weekday-only count such as 10 business days for two weeks.</p>
+        <p>The important thing is clarity: your notice should state the exact final working day instead of relying only on the phrase "two weeks notice."</p>
+      </article>
+    </section>
+
+    <section id="faq" class="faq-band">
+      <h2>2 week notice calculator FAQ</h2>
+      <details>
+        <summary>Is two weeks notice legally required?</summary>
+        <p>It depends on your job, contract, location, and employer policy. In many situations it is a professional courtesy rather than a universal legal rule. Check your agreement or ask HR if the stakes are high.</p>
+      </details>
+      <details>
+        <summary>What if my last day falls on a weekend?</summary>
+        <p>If you normally work Monday-Friday, you may choose the closest regular workday and confirm it with your manager. The calculator shows both the date and the following day so you can discuss the transition clearly.</p>
+      </details>
+      <details>
+        <summary>Can I give more than two weeks notice?</summary>
+        <p>Yes. Many people give more notice for senior roles, specialized work, or long handoffs. Use the notice length dropdown to compare one, two, three, and four-week periods.</p>
+      </details>
+      <details>
+        <summary>Should I put my last working day in the resignation letter?</summary>
+        <p>Yes. A specific final date prevents confusion and gives your employer a clear transition timeline.</p>
+      </details>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 NoticeDesk. Independent planning tool, not legal advice.</p>
+    <nav aria-label="Footer navigation">
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
